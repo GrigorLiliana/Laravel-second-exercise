@@ -20,3 +20,11 @@ Route::get('/users', 'UserController@index');
 Route::get('/login', 'UserController@create');
 
 Route::post('/user', 'UserController@store');
+
+Route::get('/articles', 'ArticleController@index');
+
+Route::get('/article/{id}', 'ArticleController@show');
+
+Route::get('/create', 'ArticleController@create');
+
+Route::resource('/books', 'BookController');
