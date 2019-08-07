@@ -6,11 +6,18 @@
     @foreach($books as $value)
     <div>
     <ul>
-    <li>First Name: {{ $value->title }} </li>
-    <li>First Name: {{ $value->author }} </li>
+    <li>Title: {{ $value->title }} </li>
+    <li>Author: {{ $value->author }} </li>
+    </ul>
     <button><a href="/books/{{$value->id}}/edit">Edit Book</a></button>
     <button><a href="/books/{{$value->id}}">See Details</a></button>
-    </ul>
+
+    <form action="/books/{{$value->id}}" method="POST">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="Delete Book">
+    </form>
+
     </div>
     <hr>
     @endforeach
